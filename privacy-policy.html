@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+    <style>
+      body {
+        font-family: 'Poppins', Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        padding: 0;
+        transition: background-color 0.3s ease;
+      }
+
+      body.dark-mode {
+        background-color: #222;
+        color: #fff;
+      }
+
+      @keyframes fondu {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fondu {
+        animation-name: fondu;
+        animation-duration: 2.5s;
+      }
+
+      .dark-mode-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: grey;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+      body.dark-mode .dark-mode-button {
+        color: #fff;
+      }
+
+      .privacy-policy-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .privacy-policy-content h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .privacy-policy-content p {
+        margin-bottom: 20px;
+      }
+
+      .back-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .back-button:hover {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body class="fondu">
+    <div class="privacy-policy-content">
+      <h1>Privacy Policy</h1>
+      <button class="dark-mode-button" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <p>Effective date: June 2023 <br>Phishield ("us", "we", or "our") operates the Phishield Discord bot (the "Service"). <br>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.. </p>
+      <hr>
+      <h2>1. Information Collection and Use</h2>
+      <p>We do not collect any personal information from users of our Service. The bot does not ask for or collect any personally identifiable information.</p>
+      <h2>2. Log Data</h2>
+      <p>Phishield stores the IDs of blacklisted users in order to operate the blacklisting system, as well as the IDs of the channels defined as log channels to send related logs to Phishield. <br>We also store the IDs of the servers where Phishield is configured, so that Phishield remembers the server configuration to act accordingly against scammers. <br>Additionally, we store the defined timeout duration. We do not store any other data. <br>The content of the messages is not stored, the bot only analyzes URLs to identify potential scams. </p>
+      <h2>3. Use of Data</h2>
+      <p>Phishield stores the IDs of blacklisted users in order to operate the blacklisting system, as well as the IDs of the channels defined as log channels to send related logs to Phishield. <br>We also store the IDs of the servers where Phishield is configured, so that Phishield remembers the server configuration to act accordingly against scammers. <br>The defined timeout duration is also used to enforce appropriate actions. </p>
+      <h2>4. Disclosure of Data</h2>
+      <p>We do not disclose any data from the Service.</p>
+      <h2>5. Security</h2>
+      <p>The data we store is not publicly available and is protected.</p>
+      <h2>6. Links to Other Sites</h2>
+      <p>Our Service may contain links to other sites that are not operated by us. <br>If you click on a third-party link, you will be directed to that third party's site. <br>We strongly advise you to review the privacy policy of every site you visit. </p>
+      <h2>7. Statistics</h2>
+      <p>We reserve the right to create an invitation link on the servers where Phishield operates for statistical purposes. <br>This link will not be shared and will only be used by our team to compile statistics on the actions taken by Phishield. </p>
+      <h2>8. Changes to This Privacy Policy</h2>
+      <p>We may update our Privacy Policy from time to time. <br>We will notify you of any changes by posting the new Privacy Policy on this page. </p>
+      <h2>9. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy, please contact us via Discord (arceus#1498 / <a href="mailto:phishield-the-bot@protonmail.com">phishield-the-bot@protonmail.com</a>). </p>
+      <a href="index.html" class="back-button">Back to Homepage</a>
+    </div>
+    <script>
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
+      }
+
+      function toggleDarkMode() {
+        const newDarkMode = !isDarkMode;
+        localStorage.setItem("darkMode", newDarkMode);
+        document.body.classList.add("transition");
+        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
+        document.body.classList.toggle("dark-mode");
+        document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
+        setTimeout(() => {
+          document.body.classList.remove("transition");
+          document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
+        }, 300);
+      }
+    </script>
+  </body>
+</html>

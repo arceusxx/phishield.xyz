@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+    <style>
+      body {
+        font-family: 'Poppins', Arial, sans-serif;
+        margin: 0;
+        background-color: #f4f4f4;
+        padding: 0;
+        transition: background-color 0.3s ease;
+      }
+
+      body.dark-mode {
+        background-color: #222;
+        color: #fff;
+      }
+
+      .dark-mode-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: grey;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+      body.dark-mode .dark-mode-button {
+        color: #fff;
+      }
+
+      @keyframes fondu {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fondu {
+        animation-name: fondu;
+        animation-duration: 2.5s;
+      }
+
+      .tos-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .tos-content h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .tos-content p {
+        margin-bottom: 20px;
+      }
+
+      .back-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .back-button:hover {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body class="fondu">
+    </style>
+    </head>
+    <body>
+      <div class="tos-content">
+        <h1>Terms of Service</h1>
+        <button class="dark-mode-button" onclick="toggleDarkMode()">
+          <i class="fas fa-moon"></i>
+        </button>
+        <p>Welcome to Phishield! By using our Discord bot, you agree to these terms of service. </p>
+        <hr>
+        <h2>1. Use of Phishield</h2>
+        <p>Phishield is a bot designed to provide phishing protection for your Discord server. <br>By using Phishield, you acknowledge that we are not responsible for any loss or damage that may result from the use of our bot. </p>
+        <h2>2. Limitations of Liability</h2>
+        <p>We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the bot or the information, products, services, or related graphics contained in the bot for any purpose. <br>Any reliance you place on such information is therefore strictly at your own risk. </p>
+        <h2>3. Termination</h2>
+        <p>We reserve the right to terminate your use of Phishield at any time and for any reason without notice or liability. </p>
+        <h2>4. User Conduct</h2>
+        <p>You agree to use Phishield in a lawful manner and not to engage in any conduct that could damage, disable, overburden, or impair our bot, servers, or networks. <br>You also agree not to use Phishield to violate any applicable laws, regulations, or rules. </p>
+        <h2>5. Intellectual Property</h2>
+        <p>Phishield and all related materials, including but not limited to the source code, graphics, and trademarks, are the property of Phishield and are protected by copyright, trademark, and other intellectual property laws.</p>
+        <h2>6. Changes to the Terms of Service</h2>
+        <p>We reserve the right to modify these terms of service at any time without notice. <br>Your continued use of Phishield after any such changes constitutes your acceptance of the new terms of service. </p>
+        <p>By using Phishield, you acknowledge that you have read and understand these terms of service and agree to be bound by them. </p>
+        <a href="index.html" class="back-button">Back to Homepage</a>
+      </div>
+      <script>
+        const isDarkMode = localStorage.getItem("darkMode") === "true";
+        if (isDarkMode) {
+          document.body.classList.add("dark-mode");
+          document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
+        }
+
+        function toggleDarkMode() {
+          const newDarkMode = !isDarkMode;
+          localStorage.setItem("darkMode", newDarkMode);
+          document.body.classList.add("transition");
+          document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
+          document.body.classList.toggle("dark-mode");
+          document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
+          setTimeout(() => {
+            document.body.classList.remove("transition");
+            document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
+          }, 300);
+        }
+      </script>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishield</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+    <style>
+      body {
+        font-family: 'Poppins', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        transition: background-color 0.3s ease;
+      }
+
+      body.dark-mode {
+        background-color: #222;
+        color: #fff;
+      }
+
+      .dark-mode-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        color: grey;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: transparent;
+      }
+
+      body.dark-mode .dark-mode-button {
+        color: #fff;
+      }
+
+      @keyframes fondu {
+        from {
+          opacity: 0;
+        }
+
+        to {
+          opacity: 1;
+        }
+      }
+
+      .fondu {
+        animation-name: fondu;
+        animation-duration: 2.5s;
+      }
+
+      .article-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 40px;
+      }
+
+      .article-content h1 {
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .article-content p {
+        margin-bottom: 20px;
+      }
+
+      .back-button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+
+      .back-button:hover {
+        background-color: #f4f4f4;
+      }
+    </style>
+  </head>
+  <body class="fondu">
+    <div class="article-content">
+      <h1>Webview</h1>
+      <button class="dark-mode-button" onclick="toggleDarkMode()">
+        <i class="fas fa-moon"></i>
+      </button>
+      <p> An article that explains why the <code>/webview</code> command is only available in NSFW channels. </p>
+      <hr>
+      <p>As the owner of a bot with a command that takes screenshots of websites, you may be wondering why I can only make this command available in NSFW channels on Discord. <br>This restriction is in place to ensure that the bot does not inadvertently expose users to illegal or explicit content. </p>
+      <p>There are numerous websites on the internet that contain content that is not suitable for all audiences. <br>Some of these websites contain pornography, while others promote hate speech or illegal activities. <br>As the owner of a bot that takes screenshots of websites, I need to be aware of the potential risks associated with exposing users to this content. </p>
+      <p>Discord has a responsibility to ensure that its platform is safe for all users, which is why the platform has a zero-tolerance policy when it comes to illegal or explicit content. <br>By limiting the availability of my bot's <code>/webview</code> command to NSFW channels, I can help ensure that my bot is not inadvertently exposing users to content that violates Discord's policies. </p>
+      <p>It's important to note that this restriction is not meant to limit the functionality of my bot. <br>You can still execute the <code>/webview</code> command in NSFW channels. <br>However, I should be mindful of the potential risks associated with exposing users to illegal or explicit content and take steps to ensure that my bot is not contributing to this problem. </p>
+      <p>In conclusion, the restriction on my bot's <code>/webview</code> command is in place to ensure that my bot is not inadvertently exposing users to illegal or explicit content. <br>By limiting the availability of this command to NSFW channels, I can help ensure that my bot is not contributing to this problem and that Discord remains a safe and welcoming platform for all users. </p>
+      <a href="index.html" class="back-button">Back to Homepage</a>
+    </div>
+    <script>
+      const isDarkMode = localStorage.getItem("darkMode") === "true";
+      if (isDarkMode) {
+        document.body.classList.add("dark-mode");
+        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
+      }
+
+      function toggleDarkMode() {
+        const newDarkMode = !isDarkMode;
+        localStorage.setItem("darkMode", newDarkMode);
+        document.body.classList.add("transition");
+        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
+        document.body.classList.toggle("dark-mode");
+        document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
+        setTimeout(() => {
+          document.body.classList.remove("transition");
+          document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
+        }, 300);
+      }
+    </script>
+  </body>
+</html>
