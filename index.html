@@ -162,6 +162,11 @@
         color: #fff;
       }
       
+      .footer-link {
+        color: inherit;
+        text-decoration: none;
+      }
+    
 
       @media (max-width: 768px) {
         .feature-section {
@@ -239,7 +244,7 @@
     <footer class="footer">
       <p>© 2023 Phishield. All rights reserved.
         <br>
-        <a href="article.html">Article Webview</a> | <a href="changelog.html">Changelog</a> |<a href="https://phishield.instatus.com/">Status Page</a>
+        <a href="article.html" class="footer-link">Article Webview</a> | <a href="changelog.html" class="footer-link">Changelog</a> | <a href="https://phishield.instatus.com/" class="footer-link">Status Page</a>
       </p>
     </footer>
      <script>
@@ -263,12 +268,12 @@
         document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
         document.querySelector('.statistics-box').classList.toggle("dark-mode");
         document.querySelector('.statistics-section').classList.toggle("dark-mode");
+
         setTimeout(() => {
           document.body.classList.remove("transition");
           document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
           document.querySelector('.statistics-box').classList.remove("transition");
           document.querySelector('.statistics-section').classList.remove("transition");
-
         }, 300);
       }
     </script>
