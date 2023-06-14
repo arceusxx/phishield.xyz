@@ -1,142 +1,239 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Get rid of scammers with Phishield, one of the best Discord bot to protect your server from scammers.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishield • Get rid of scammers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
-    <style>
-      body {
-        font-family: 'Poppins', Arial, sans-serif;
-        margin: 0;
-        background-color: #f4f4f4;
-        padding: 0;
-        transition: background-color 0.3s ease;
-      }
-
-      body.dark-mode {
-        background-color: #222;
-        color: #fff;
-      }
-
-      @keyframes fondu {
-        from {
-          opacity: 0;
-        }
-
-        to {
-          opacity: 1;
-        }
-      }
-
-      .fondu {
-        animation-name: fondu;
-        animation-duration: 2.5s;
-      }
-
-      .dark-mode-button {
-        position: absolute;
-        z-index: 1;
-        top: 20px;
-        right: 20px;
-        color: grey;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color: transparent;
-      }
-
-      body.dark-mode .dark-mode-button {
-        color: #fff;
-      }
-
-      .privacy-policy-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 40px;
-      }
-
-      .privacy-policy-content h1 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-
-      .privacy-policy-content p {
-        margin-bottom: 20px;
-      }
-
-      .back-button {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #fff;
-        color: #000;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .back-button:hover {
-        background-color: #f4f4f4;
-      }
-    </style>
-  </head>
-  <body class="fondu">
-    <div class="privacy-policy-content">
-      <h1>Privacy Policy</h1>
-      <button class="dark-mode-button" onclick="toggleDarkMode()">
-        <i class="fas fa-moon"></i>
-      </button>
-      <p>Effective date: June 2023 <br>Phishield ("us", "we", or "our") operates the Phishield Discord bot (the "Service"). <br>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.. </p>
-      <hr>
-      <h2>1. Information Collection and Use</h2>
-      <p>We do not collect any personal information from users of our Service. The bot does not ask for or collect any personally identifiable information.</p>
-      <h2>2. Log Data</h2>
-      <p>Phishield stores the IDs of blacklisted users in order to operate the blacklisting system, as well as the IDs of the channels defined as log channels to send related logs to Phishield. <br>We also store the IDs of the servers where Phishield is configured, so that Phishield remembers the server configuration to act accordingly against scammers. <br>Additionally, we store the defined timeout duration. We do not store any other data. <br>The content of the messages is not stored, the bot only analyzes URLs to identify potential scams. </p>
-      <h2>3. Use of Data</h2>
-      <p>Phishield stores the IDs of blacklisted users in order to operate the blacklisting system, as well as the IDs of the channels defined as log channels to send related logs to Phishield. <br>We also store the IDs of the servers where Phishield is configured, so that Phishield remembers the server configuration to act accordingly against scammers. <br>The defined timeout duration is also used to enforce appropriate actions. </p>
-      <h2>4. Disclosure of Data</h2>
-      <p>We do not disclose any data from the Service.</p>
-      <h2>5. Security</h2>
-      <p>The data we store is not publicly available and is protected.</p>
-      <h2>6. Links to Other Sites</h2>
-      <p>Our Service may contain links to other sites that are not operated by us. <br>If you click on a third-party link, you will be directed to that third party's site. <br>We strongly advise you to review the privacy policy of every site you visit. </p>
-      <h2>7. Statistics</h2>
-      <p>We reserve the right to create an invitation link on the servers where Phishield operates for statistical purposes. <br>This link will not be shared and will only be used by our team to compile statistics on the actions taken by Phishield. </p>
-      <h2>8. Changes to This Privacy Policy</h2>
-      <p>We may update our Privacy Policy from time to time. <br>We will notify you of any changes by posting the new Privacy Policy on this page. </p>
-      <h2>9. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us via Discord (arceus#1498 / <a href="mailto:phishield-the-bot@protonmail.com">phishield-the-bot@protonmail.com</a>). </p>
-      <a href="index.html" class="back-button">Back to Homepage</a>
-    </div>
-    <script>
-      const isDarkMode = localStorage.getItem("darkMode") === "true";
-      if (isDarkMode) {
-        document.body.classList.add("dark-mode");
-        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
-      }
-
-      function toggleDarkMode() {
-        const newDarkMode = !isDarkMode;
-        localStorage.setItem("darkMode", newDarkMode);
-        document.body.classList.add("transition");
-        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
-        document.body.classList.toggle("dark-mode");
-        document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
-        setTimeout(() => {
-          document.body.classList.remove("transition");
-          document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
-        }, 300);
-      }
-    </script>
-  </body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Get rid of scammers with Phishield, one of the best Discord bot to protect your server from scammers.">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Phishield • Get rid of scammers</title>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+      <style>
+         body {
+         font-family: 'Poppins', Arial, sans-serif;
+         margin: 0;
+         background-color: #f4f4f4;
+         padding: 0;
+         transition: background-color 0.3s ease;
+         }
+         body.dark-mode {
+         background-color: #222;
+         color: #fff;
+         }
+         @keyframes fondu {
+         from {
+         opacity: 0;
+         }
+         to {
+         opacity: 1;
+         }
+         }
+         .fondu {
+         animation-name: fondu;
+         animation-duration: 2.5s;
+         }
+         .dark-mode-button {
+         position: absolute;
+         z-index: 1;
+         top: 10px;
+         right: 60px; 
+         color: grey;
+         border: none;
+         border-radius: 4px;
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         background-color: transparent;
+         }
+         .lang-mode-button {
+         position: absolute;
+         z-index: 1;
+         top: 20px;
+         right: 25px;
+         color: grey;
+         border: none;
+         border-radius: 4px;
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         background-color: transparent;
+         background-image: url(/images/english-flag.png);
+         background-repeat: no-repeat;
+         background-size: 20px;
+         background-position: center;
+         }
+         .lang-mode-button[lang="fr"] {
+         background-image: url(/images/french-flag.png);
+         }
+         body.dark-mode .dark-mode-button {
+         color: #fff;
+         }
+         .privacy-policy-content {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 40px;
+         }
+         .privacy-policy-content h1 {
+         font-size: 32px;
+         font-weight: 700;
+         margin-bottom: 20px;
+         }
+         .privacy-policy-content p {
+         margin-bottom: 20px;
+         }
+         .back-button {
+         display: inline-block;
+         margin-top: 20px;
+         padding: 10px 20px;
+         font-size: 16px;
+         background-color: #fff;
+         color: #000;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         text-decoration: none;
+         transition: background-color 0.3s ease;
+         }
+         .back-button:hover {
+         background-color: #f4f4f4;
+         }
+      </style>
+   </head>
+   <body class="fondu">
+      <div class="privacy-policy-content">
+         <h1 data-translate="privacyPolicyTitle">Privacy Policy</h1>
+         <button class="dark-mode-button" onclick="toggleDarkMode()">
+         <i class="fas fa-moon"></i>
+         </button>
+         <button class="lang-mode-button language-button" onclick="toggleLanguage()" lang="en"></button>
+         <p data-translate="privacyPolicyIntro">Effective date: June 2023 <br>Phishield ("us", "we", or "our") operates the Phishield Discord bot (the "Service"). <br>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.. </p>
+         <hr>
+         <h2 data-translate="informationCollectionTitle">1. Information Collection and Use</h2>
+         <p data-translate="informationCollectionDescription">We do not collect any personal information from users of our Service. The bot does not ask for or collect any personally identifiable information.</p>
+         <h2 data-translate="logDataTitle">2. Log Data</h2>
+         <p data-translate="logDataDescription">Phishield stores the IDs of blacklisted users in order to operate the blacklisting system, as well as the IDs of the channels defined as log channels to send related logs to Phishield. <br>We also store the IDs of the servers where Phishield is configured, so that Phishield remembers the server configuration to act accordingly against scammers. <br>Additionally, we store the defined timeout duration. We do not store any other data. <br>The content of the messages is not stored, the bot only analyzes URLs to identify potential scams. </p>
+         <h2 data-translate="useOfDataTitle">3. Use of Data</h2>
+         <p data-translate="useOfDataDescription">Phishield stores the IDs of blacklisted users in order to operate the blacklisting system, as well as the IDs of the channels defined as log channels to send related logs to Phishield. <br>We also store the IDs of the servers where Phishield is configured, so that Phishield remembers the server configuration to act accordingly against scammers. <br>The defined timeout duration is also used to enforce appropriate actions. </p>
+         <h2 data-translate="disclosureOfDataTitle">4. Disclosure of Data</h2>
+         <p data-translate="disclosureOfDataDescription">We do not disclose any data from the Service.</p>
+         <h2 data-translate="securityTitle">5. Security</h2>
+         <p data-translate="securityDescription">The data we store is not publicly available and is protected.</p>
+         <h2 data-translate="linksToOtherSitesTitle">6. Links to Other Sites</h2>
+         <p data-translate="linksToOtherSitesDescription">Our Service may contain links to other sites that are not operated by us. <br>If you click on a third-party link, you will be directed to that third party's site. <br>We strongly advise you to review the privacy policy of every site you visit. </p>
+         <h2 data-translate="statisticsTitle">7. Statistics</h2>
+         <p data-translate="statisticsDescription">We reserve the right to create an invitation link on the servers where Phishield operates for statistical purposes. <br>This link will not be shared and will only be used by our team to compile statistics on the actions taken by Phishield. </p>
+         <h2 data-translate="changesToPrivacyPolicyTitle">8. Changes to This Privacy Policy</h2>
+         <p data-translate="changesToPrivacyPolicyDescription">We may update our Privacy Policy from time to time. <br>We will notify you of any changes by posting the new Privacy Policy on this page. </p>
+         <h2 data-translate="contactUsTitle">9. Contact Us</h2>
+         <p data-translate="contactUsDescription">If you have any questions about this Privacy Policy, please contact us via Discord (arceus#1498 / <a href="mailto:phishield-the-bot@protonmail.com">phishield-the-bot@protonmail.com</a>). </p>
+         <a href="index.html" class="back-button" data-translate="backButton">Back to Homepage</a>
+      </div>
+      <script>
+         const isDarkMode = localStorage.getItem("darkMode") === "true";
+         if (isDarkMode) {
+           document.body.classList.add("dark-mode");
+           document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
+         }
+         
+         function toggleDarkMode() {
+           const newDarkMode = !isDarkMode;
+           localStorage.setItem("darkMode", newDarkMode);
+           document.body.classList.add("transition");
+           document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
+           document.body.classList.toggle("dark-mode");
+           document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
+           setTimeout(() => {
+             document.body.classList.remove("transition");
+             document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
+           }, 300);
+         }
+         const defaultLanguage = 'fr';
+         let currentLanguage = localStorage.getItem('language') || defaultLanguage;
+         
+         function toggleLanguage() {
+           currentLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+           localStorage.setItem('language', currentLanguage);
+           updateLanguage();
+         }
+         
+         function updateLanguage() {
+           const languageButtons = document.querySelectorAll('.language-button');
+           languageButtons.forEach(button => {
+             button.setAttribute('lang', currentLanguage);
+             if (currentLanguage === 'fr') {
+               button.style.backgroundImage = 'url(/images/french-flag.png)';
+             } else {
+               button.style.backgroundImage = 'url(/images/english-flag.png)';
+             }
+           });
+           const translations = {
+             fr: {
+               privacyPolicyTitle: 'Politique de confidentialité',
+               privacyPolicyIntro: 'Date d\'entrée en vigueur : Juin 2023 <br>Phishield ("nous", "notre" ou "nos") exploite le bot Discord Phishield (le "Service"). <br>Cette page vous informe de nos politiques concernant la collecte, l\'utilisation et la divulgation de données personnelles lorsque vous utilisez notre Service et des choix que vous avez associés à ces données.',
+               informationCollectionTitle: '1. Collecte et utilisation des informations',
+               informationCollectionDescription: 'Nous ne collectons aucune information personnelle auprès des utilisateurs de notre Service. Le bot ne demande ni ne collecte aucune information permettant de vous identifier.',
+               logDataTitle: '2. Données stockées',
+               logDataDescription: 'Phishield stocke les identifiants des utilisateurs sur liste noire afin de faire fonctionner le système de mise sur liste noire, ainsi que les identifiants des canaux définis comme canaux de journalisation pour envoyer les journaux associés à Phishield. <br>Nous stockons également les identifiants des serveurs où Phishield est configuré, afin que Phishield se souvienne de la configuration du serveur pour agir en conséquence contre les arnaqueurs. <br>De plus, nous stockons la durée de temporisation définie. Nous ne stockons aucune autre donnée. <br>Le contenu des messages n\'est pas stocké, le bot analyse uniquement les URL pour identifier les arnaques potentielles.',
+               useOfDataTitle: '3. Utilisation des données',
+               useOfDataDescription: 'Phishield stocke les identifiants des utilisateurs sur liste noire afin de faire fonctionner le système de mise sur liste noire, ainsi que les identifiants des canaux définis comme canaux de journalisation pour envoyer les journaux associés à Phishield. <br>Nous stockons également les identifiants des serveurs où Phishield est configuré, afin que Phishield se souvienne de la configuration du serveur pour agir en conséquence contre les arnaqueurs. <br>La durée de temporisation définie est également utilisée pour appliquer des actions appropriées.',
+               disclosureOfDataTitle: '4. Divulgation des données',
+               disclosureOfDataDescription: 'Nous ne divulguons aucune donnée provenant du Service.',
+               securityTitle: '5. Sécurité',
+               securityDescription: 'Les données que nous stockons ne sont pas accessibles au public et sont protégées.',
+               linksToOtherSitesTitle: '6. Liens vers d\'autres sites',
+               linksToOtherSitesDescription: 'Notre Service peut contenir des liens vers d\'autres sites qui ne sont pas exploités par nous. <br>Si vous cliquez sur un lien tiers, vous serez redirigé vers le site de ce tiers. <br>Nous vous conseillons vivement de consulter la politique de confidentialité de chaque site que vous visitez.',
+               statisticsTitle: '7. Statistiques',
+               statisticsDescription: 'Nous nous réservons le droit de créer un lien d\'invitation sur les serveurs où Phishield opère à des fins statistiques. <br>Ce lien ne sera pas partagé et sera uniquement utilisé par notre équipe pour compiler des statistiques sur les actions entreprises par Phishield.',
+               changesToPrivacyPolicyTitle: '8. Modifications de cette politique de confidentialité',
+               changesToPrivacyPolicyDescription: 'Nous pouvons mettre à jour notre politique de confidentialité de temps à autre. <br>Nous vous informerons de toute modification en publiant la nouvelle politique de confidentialité sur cette page.',
+               contactUsTitle: '9. Contactez-nous',
+               contactUsDescription: 'Si vous avez des questions concernant cette politique de confidentialité, veuillez nous contacter via Discord (arceus#1498 / <a href="mailto:phishield-the-bot@protonmail.com">phishield-the-bot@protonmail.com</a>).',
+               backButton: 'Retour à la page d\'accueil'
+             },
+             en: {
+               privacyPolicyTitle: 'Privacy Policy',
+               privacyPolicyIntro: 'Effective date: June 2023 <br>Phishield ("us", "we", or "our") operates the Phishield Discord bot (the "Service"). <br>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.',
+               informationCollectionTitle: '1. Information Collection and Use',
+               informationCollectionDescription: 'We do not collect any personal information from users of our Service. The bot does not request or collect any information that can identify you.',
+               logDataTitle: '2. Log Data',
+               logDataDescription: 'Phishield stores user IDs on a blacklist to operate the blacklist system, as well as the IDs of channels defined as logging channels to send logs associated with Phishield. <br>We also store the IDs of servers where Phishield is configured, so that Phishield can remember the server configuration to act accordingly against scammers. <br>In addition, we store the defined timeout duration. We do not store any other data. <br>The content of messages is not stored; the bot only analyzes URLs to identify potential scams.',
+               useOfDataTitle: '3. Use of Data',
+               useOfDataDescription: 'Phishield stores user IDs on a blacklist to operate the blacklist system, as well as the IDs of channels defined as logging channels to send logs associated with Phishield. <br>We also store the IDs of servers where Phishield is configured, so that Phishield can remember the server configuration to act accordingly against scammers. <br>The defined timeout duration is also used to apply appropriate actions.',
+               disclosureOfDataTitle: '4. Disclosure of Data',
+               disclosureOfDataDescription: 'We do not disclose any data from the Service.',
+               securityTitle: '5. Security',
+               securityDescription: 'The data we store is not publicly accessible and is protected.',
+               linksToOtherSitesTitle: '6. Links to Other Sites',
+               linksToOtherSitesDescription: 'Our Service may contain links to other sites that are not operated by us. <br>If you click on a third-party link, you will be directed to that third party\'s site. <br>We strongly advise you to review the Privacy Policy of every site you visit.',
+               statisticsTitle: '7. Statistics',
+               statisticsDescription: 'We reserve the right to create an invitation link on servers where Phishield operates for statistical purposes. <br>This link will not be shared and will be used only by our team to compile statistics on the actions taken by Phishield.',
+               changesToPrivacyPolicyTitle: '8. Changes to This Privacy Policy',
+               changesToPrivacyPolicyDescription: 'We may update our Privacy Policy from time to time. <br>We will notify you of any changes by posting the new Privacy Policy on this page.',
+               contactUsTitle: '9. Contact Us',
+               contactUsDescription: 'If you have any questions about this Privacy Policy, please contact us via Discord (arceus#1498 / <a href="mailto:phishield-the-bot@protonmail.com">phishield-the-bot@protonmail.com</a>).',
+               backButton: 'Back to Homepage'
+             }
+           };
+         
+           const translateElement = (element, translationKey) => {
+             const translation = translations[currentLanguage][translationKey];
+             if (translation) {
+               element.innerHTML = translation;
+             }
+           };
+         
+           const translateAll = () => {
+             const elements = document.querySelectorAll('[data-translate]');
+             elements.forEach(element => {
+               const translationKey = element.getAttribute('data-translate');
+               translateElement(element, translationKey);
+             });
+           };
+         
+           translateAll();
+         }
+         
+         updateLanguage();
+      </script>
+   </body>
 </html>
