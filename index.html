@@ -22,7 +22,7 @@
          .dark-mode-button {
          position: absolute;
          z-index: 1;
-         top: 13px;
+         top: 10px;
          right: 60px; 
          color: grey;
          border: none;
@@ -31,6 +31,9 @@
          font-size: 16px;
          cursor: pointer;
          background-color: transparent;
+         }
+         body.dark-mode .dark-mode-button {
+         color: black;
          }
          .lang-mode-button {
          position: absolute;
@@ -51,6 +54,22 @@
          }
          .lang-mode-button[lang="fr"] {
          background-image: url(/images/french-flag.png);
+         }
+         .container {
+         text-align: center;
+         }
+         .buttons {
+         margin-top: 30px;
+         margin-bottom: 30px;
+         }
+         .dark-mode-button,
+         .lang-mode-button {
+         display: inline-block;
+         margin: 0 10px;
+         padding: 10px 20px;
+         color: grey;
+         border-radius: 5px;
+         cursor: pointer;
          }
          body.dark-mode .dark-mode-button {
          color: #fff;
@@ -177,17 +196,10 @@
          .statistics-box {
          width: -80%;
          }
-         .dark-mode-button, .language-button {
-         margin-bottom: 10px;
-         }
          }
       </style>
    </head>
    <body class="fondu">
-      <button class="dark-mode-button" onclick="toggleDarkMode()">
-      <i class="fas fa-moon"></i>
-      </button>
-      <button class="lang-mode-button language-button" onclick="toggleLanguage()" lang="en"></button>
       <section class="hero-banner">
          <h1 data-translate="heroTitle">One of the best Discord bot <br>to protect your server from scammers. </h1>
          <a href="https://discord.com/api/oauth2/authorize?client_id=1098150137508937758&permissions=1101927869526&scope=bot%20applications.commands" target="_blank">
@@ -196,6 +208,15 @@
          <a href="privacy-policy.html" class="privacy-policy-btn" data-translate="privacyPolicy">Privacy Policy</a>
          <a href="terms-of-service.html" class="terms-of-service-btn" data-translate="termsOfService">Terms of Service</a>
       </section>
+      <div class="container">
+         <div class="buttons">
+            <button class="dark-mode-button" onclick="toggleDarkMode()">
+            <i class="fas fa-moon"></i>
+            </button>
+            <button class="lang-mode-button language-button" onclick="toggleLanguage()" lang="en"></button>
+         </div>
+      </div>
+      </div>
       <section class="feature-section">
          <div class="feature-box">
             <img src="https://cdn.discordapp.com/attachments/1106109288956571680/1116684169452466296/fishing-rod.png" alt="Fraudulent links">
@@ -274,7 +295,7 @@
              document.querySelector('.statistics-section').classList.remove("transition");
            }, 300);
          }
-         const defaultLanguage = 'en';
+         const defaultLanguage = 'fr';
          let currentLanguage = localStorage.getItem('language') || defaultLanguage;
          
          
