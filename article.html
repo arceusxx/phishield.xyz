@@ -1,129 +1,196 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="Get rid of scammers with Phishield, one of the best Discord bot to protect your server from scammers.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishield • Get rid of scammers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/images/icon.ico">
-    <style>
-      body {
-        font-family: 'Poppins', Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        transition: background-color 0.3s ease;
-      }
-
-      body.dark-mode {
-        background-color: #222;
-        color: #fff;
-      }
-
-      .dark-mode-button {
-        position: absolute;
-        z-index: 1;
-        top: 20px;
-        right: 20px;
-        color: grey;
-        border: none;
-        border-radius: 4px;
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-        background-color: transparent;
-      }
-
-      body.dark-mode .dark-mode-button {
-        color: #fff;
-      }
-
-      @keyframes fondu {
-        from {
-          opacity: 0;
-        }
-
-        to {
-          opacity: 1;
-        }
-      }
-
-      .fondu {
-        animation-name: fondu;
-        animation-duration: 2.5s;
-      }
-
-      .article-content {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 40px;
-      }
-
-      .article-content h1 {
-        font-size: 32px;
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-
-      .article-content p {
-        margin-bottom: 20px;
-      }
-
-      .back-button {
-        display: inline-block;
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        background-color: #fff;
-        color: #000;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        text-decoration: none;
-        transition: background-color 0.3s ease;
-      }
-
-      .back-button:hover {
-        background-color: #f4f4f4;
-      }
-    </style>
-  </head>
-  <body class="fondu">
-    <div class="article-content">
-      <h1>Webview</h1>
-      <button class="dark-mode-button" onclick="toggleDarkMode()">
-        <i class="fas fa-moon"></i>
-      </button>
-      <p> An article that explains why the <code>/webview</code> command is only available in NSFW channels. </p>
-      <hr>
-      <p>As the owner of a bot with a command that takes screenshots of websites, you may be wondering why I can only make this command available in NSFW channels on Discord. <br>This restriction is in place to ensure that the bot does not inadvertently expose users to illegal or explicit content. </p>
-      <p>There are numerous websites on the internet that contain content that is not suitable for all audiences. <br>Some of these websites contain pornography, while others promote hate speech or illegal activities. <br>As the owner of a bot that takes screenshots of websites, I need to be aware of the potential risks associated with exposing users to this content. </p>
-      <p>Discord has a responsibility to ensure that its platform is safe for all users, which is why the platform has a zero-tolerance policy when it comes to illegal or explicit content. <br>By limiting the availability of my bot's <code>/webview</code> command to NSFW channels, I can help ensure that my bot is not inadvertently exposing users to content that violates Discord's policies. </p>
-      <p>It's important to note that this restriction is not meant to limit the functionality of my bot. <br>You can still execute the <code>/webview</code> command in NSFW channels. <br>However, I should be mindful of the potential risks associated with exposing users to illegal or explicit content and take steps to ensure that my bot is not contributing to this problem. </p>
-      <p>In conclusion, the restriction on my bot's <code>/webview</code> command is in place to ensure that my bot is not inadvertently exposing users to illegal or explicit content. <br>By limiting the availability of this command to NSFW channels, I can help ensure that my bot is not contributing to this problem and that Discord remains a safe and welcoming platform for all users. </p>
-      <a href="index.html" class="back-button">Back to Homepage</a>
-    </div>
-    <script>
-      const isDarkMode = localStorage.getItem("darkMode") === "true";
-      if (isDarkMode) {
-        document.body.classList.add("dark-mode");
-        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
-      }
-
-      function toggleDarkMode() {
-        const newDarkMode = !isDarkMode;
-        localStorage.setItem("darkMode", newDarkMode);
-        document.body.classList.add("transition");
-        document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
-        document.body.classList.toggle("dark-mode");
-        document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
-        setTimeout(() => {
-          document.body.classList.remove("transition");
-          document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
-        }, 300);
-      }
-    </script>
-  </body>
+   <head>
+      <meta charset="UTF-8">
+      <meta name="description" content="Get rid of scammers with Phishield, one of the best Discord bot to protect your server from scammers.">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Phishield • Get rid of scammers</title>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+      <link rel="icon" type="image/x-icon" href="/images/icon.ico">
+      <style>
+         body {
+         font-family: 'Poppins', Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         background-color: #f4f4f4;
+         transition: background-color 0.3s ease;
+         }
+         body.dark-mode {
+         background-color: #222;
+         color: #fff;
+         }
+         .dark-mode-button {
+         position: absolute;
+         z-index: 1;
+         top: 10px;
+         right: 60px; 
+         color: grey;
+         border: none;
+         border-radius: 4px;
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         background-color: transparent;
+         }
+         .lang-mode-button {
+         position: absolute;
+         z-index: 1;
+         top: 20px;
+         right: 25px;
+         color: grey;
+         border: none;
+         border-radius: 4px;
+         padding: 10px 20px;
+         font-size: 16px;
+         cursor: pointer;
+         background-color: transparent;
+         background-image: url(/images/english-flag.png);
+         background-repeat: no-repeat;
+         background-size: 20px;
+         background-position: center;
+         }
+         .lang-mode-button[lang="fr"] {
+         background-image: url(/images/french-flag.png);
+         }
+         body.dark-mode .dark-mode-button {
+         color: #fff;
+         }
+         @keyframes fondu {
+         from {
+         opacity: 0;
+         }
+         to {
+         opacity: 1;
+         }
+         }
+         .fondu {
+         animation-name: fondu;
+         animation-duration: 2.5s;
+         }
+         .article-content {
+         max-width: 800px;
+         margin: 0 auto;
+         padding: 40px;
+         }
+         .article-content h1 {
+         font-size: 32px;
+         font-weight: 700;
+         margin-bottom: 20px;
+         }
+         .article-content p {
+         margin-bottom: 20px;
+         }
+         .back-button {
+         display: inline-block;
+         margin-top: 20px;
+         padding: 10px 20px;
+         font-size: 16px;
+         background-color: #fff;
+         color: #000;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         text-decoration: none;
+         transition: background-color 0.3s ease;
+         }
+         .back-button:hover {
+         background-color: #f4f4f4;
+         }
+      </style>
+   </head>
+   <body class="fondu">
+      <div class="article-content">
+         <h1 data-translate="articleTitle">Webview</h1>
+         <button class="dark-mode-button" onclick="toggleDarkMode()">
+         <i class="fas fa-moon"></i>
+         </button>
+         <button class="lang-mode-button language-button" onclick="toggleLanguage()" lang="en"></button>
+         <p data-translate="articleText"> An article that explains why the <code>/webview</code> command is only available in NSFW channels. </p>
+         <hr>
+         <p data-translate="restrictionText">As the owner of a bot with a command that takes screenshots of websites, you may be wondering why I can only make this command available in NSFW channels on Discord. <br>This restriction is in place to ensure that the bot does not inadvertently expose users to illegal or explicit content. </p>
+         <p data-translate="restrictionText2">There are numerous websites on the internet that contain content that is not suitable for all audiences. <br>Some of these websites contain pornography, while others promote hate speech or illegal activities. <br data-translate="restrictionText3">As the owner of a bot that takes screenshots of websites, I need to be aware of the potential risks associated with exposing users to this content. </p>
+         <p data-translate="restrictionText4">Discord has a responsibility to ensure that its platform is safe for all users, which is why the platform has a zero-tolerance policy when it comes to illegal or explicit content. <br data-translate="restrictionText5">By limiting the availability of my bot's <code>/webview</code> command to NSFW channels, I can help ensure that my bot is not inadvertently exposing users to content that violates Discord's policies. </p>
+         <p data-translate="restrictionText6">It's important to note that this restriction is not meant to limit the functionality of my bot. <br>You can still execute the <code>/webview</code> command in NSFW channels. <br data-translate="restrictionText7">However, I should be mindful of the potential risks associated with exposing users to illegal or explicit content and take steps to ensure that my bot is not contributing to this problem. </p>
+         <p data-translate="restrictionText8">In conclusion, the restriction on my bot's <code>/webview</code> command is in place to ensure that my bot is not inadvertently exposing users to illegal or explicit content. <br>By limiting the availability of this command to NSFW channels, I can help ensure that my bot is not contributing to this problem and that Discord remains a safe and welcoming platform for all users. </p>
+         <a href="index.html" class="back-button" data-translate="backButton">Back to Homepage</a>
+      </div>
+      <script>
+         const isDarkMode = localStorage.getItem("darkMode") === "true";
+         if (isDarkMode) {
+           document.body.classList.add("dark-mode");
+           document.querySelectorAll('.feature-box').forEach(box => box.classList.add("dark-mode"));
+         }
+         
+         function toggleDarkMode() {
+           const newDarkMode = !isDarkMode;
+           localStorage.setItem("darkMode", newDarkMode);
+           document.body.classList.add("transition");
+           document.querySelectorAll('.feature-box').forEach(box => box.classList.add("transition"));
+           document.body.classList.toggle("dark-mode");
+           document.querySelectorAll('.feature-box').forEach(box => box.classList.toggle("dark-mode"));
+           setTimeout(() => {
+             document.body.classList.remove("transition");
+             document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
+           }, 300);
+         }
+         const defaultLanguage = 'fr';
+         let currentLanguage = localStorage.getItem('language') || defaultLanguage;
+         
+         function toggleLanguage() {
+         currentLanguage = currentLanguage === 'fr' ? 'en' : 'fr';
+         localStorage.setItem('language', currentLanguage);
+         updateLanguage();
+         }
+         
+         function updateLanguage() {
+         const languageButtons = document.querySelectorAll('.language-button');
+         languageButtons.forEach(button => {
+         button.setAttribute('lang', currentLanguage);
+         if (currentLanguage === 'fr') {
+         button.style.backgroundImage = 'url(/images/french-flag.png)';
+         } else {
+         button.style.backgroundImage = 'url(/images/english-flag.png)';
+         }
+         });
+         
+         const translations = {
+         fr: {
+         articleTitle: 'Webview',
+         articleText: "Un article qui explique pourquoi la commande <code>/webview</code> n'est disponible que dans les canaux NSFW.",
+         restrictionText: "En tant que propriétaire d'un bot avec une commande qui prend des captures d'écran de sites web, vous vous demandez peut-être pourquoi je ne peux rendre cette commande disponible que dans les canaux NSFW sur Discord. <br>Cette restriction est mise en place pour garantir que le bot n'expose pas involontairement les utilisateurs à du contenu illégal ou explicite.</p>",
+         restrictionText2: "<p>Il existe de nombreux sites web sur Internet qui contiennent du contenu qui ne convient pas à tous les publics. <br>Certains de ces sites web contiennent de la pornographie, tandis que d'autres font la promotion de discours haineux ou d'activités illégales.",
+         restrictionText3: "<br>En tant que propriétaire d'un bot qui prend des captures d'écran de sites web, je dois être conscient des risques potentiels liés à l'exposition des utilisateurs à ce contenu.</p> ",
+         restrictionText4: "Discord a la responsabilité de veiller à ce que sa plateforme soit sûre pour tous les utilisateurs, c'est pourquoi la plateforme a une politique de tolérance zéro en ce qui concerne le contenu illégal ou explicite.",
+         restrictionText5: "<br>En limitant la disponibilité de la commande <code>/webview</code> de mon bot aux canaux NSFW, je peux contribuer à garantir que mon bot n'expose pas involontairement les utilisateurs à du contenu qui enfreint les règles de Discord.</p>",
+         restrictionText6: "<p>Il est important de noter que cette restriction ne vise pas à limiter les fonctionnalités de mon bot. <br>Vous pouvez toujours exécuter la commande <code>/webview</code> dans les canaux NSFW.",
+         restrictionText7: "<br>Cependant, je dois être conscient des risques potentiels liés à l'exposition des utilisateurs à du contenu illégal ou explicite et prendre des mesures pour garantir que mon bot ne contribue pas à ce problème. </p>",
+         restrictionText8: "<p>En conclusion, la restriction de la commande <code>/webview</code> de mon bot est mise en place pour garantir que mon bot n'expose pas involontairement les utilisateurs à du contenu illégal ou explicite. <br>En limitant la disponibilité de cette commande aux canaux NSFW, je peux contribuer à garantir que mon bot ne contribue pas à ce problème et que Discord reste une plateforme sûre et accueillante pour tous les utilisateurs. </p>",
+         backButton: 'Retour à la page d\'accueil',
+         },
+         en: {
+         articleTitle: 'Webview',
+         articleText: "An article that explains why the <code>/webview</code> command is only available in NSFW channels.",
+         restrictionText: "As the owner of a bot with a command that takes screenshots of websites, you may be wondering why I can only make this command available in NSFW channels on Discord. <br>This restriction is in place to ensure that the bot does not inadvertently expose users to illegal or explicit content. </p>",
+         restrictionText2: "<p>There are numerous websites on the internet that contain content that is not suitable for all audiences. <br>Some of these websites contain pornography, while others promote hate speech or illegal activities. <br>As the owner of a bot that takes screenshots of websites, I need to be aware of the potential risks associated with exposing users to this content.",
+         restrictionText3: "<br>As the owner of a bot that takes screenshots of websites, I need to be aware of the potential risks associated with users' exposure to this content.</p> ",
+         restrictionText4: "Discord has a responsibility to ensure that its platform is safe for all users, which is why the platform has a zero-tolerance policy when it comes to illegal or explicit content.",
+         restrictionText5: "<br>En limitant la disponibilité de la commande <code>/webview</code> de mon bot aux canaux NSFW, je peux contribuer à garantir que mon bot n'expose pas involontairement les utilisateurs à du contenu qui enfreint les règles de Discord.</p>",
+         restrictionText6: "<p>It's important to note that this restriction is not meant to limit the functionality of my bot. <br>You can still execute the <code>/webview</code> command in NSFW channels.",
+         restrictionText7: "<br>However, I should be mindful of the potential risks associated with exposing users to illegal or explicit content and take steps to ensure that my bot is not contributing to this problem.</p>",
+         restrictionText8: "<p>In conclusion, the restriction on my bot's <code>/webview</code> command is in place to ensure that my bot is not inadvertently exposing users to illegal or explicit content. <br>By limiting the availability of this command to NSFW channels, I can help ensure that my bot is not contributing to this problem and that Discord remains a safe and welcoming platform for all users. </p>",
+         backButton: 'Back to Homepage',
+         }
+             };
+             const translationKeys = Object.keys(translations[currentLanguage]);
+             translationKeys.forEach(key => {
+               const elements = document.querySelectorAll(`[data-translate="${key}"]`);
+               elements.forEach(element => {
+                 element.innerHTML = translations[currentLanguage][key];
+               });
+             });
+           }
+           updateLanguage();
+      </script>
+   </body>
 </html>
