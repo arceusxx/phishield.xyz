@@ -23,7 +23,7 @@
          .dark-mode-button {
          position: absolute;
          z-index: 1;
-         top: 13px;
+         top: 10px;
          right: 60px; 
          color: grey;
          border: none;
@@ -52,6 +52,22 @@
          }
          .lang-mode-button[lang="fr"] {
          background-image: url(/images/french-flag.png);
+         }
+         .container {
+         text-align: center;
+         }
+         .buttons {
+         margin-top: 30px;
+         margin-bottom: 30px;
+         }
+         .dark-mode-button,
+         .lang-mode-button {
+         display: inline-block;
+         margin: 0 10px;
+         padding: 10px 20px;
+         color: grey;
+         border-radius: 5px;
+         cursor: pointer;
          }
          body.dark-mode .dark-mode-button {
          color: #fff;
@@ -101,11 +117,15 @@
    </head>
    <body class="fondu">
       <div class="article-content">
+        <div class="container">
+          <div class="buttons">
+             <button class="dark-mode-button" onclick="toggleDarkMode()">
+             <i class="fas fa-moon"></i>
+             </button>
+             <button class="lang-mode-button language-button" onclick="toggleLanguage()" lang="en"></button>
+          </div>
+       </div>
          <h1 data-translate="articleTitle">Webview</h1>
-         <button class="dark-mode-button" onclick="toggleDarkMode()">
-         <i class="fas fa-moon"></i>
-         </button>
-         <button class="lang-mode-button language-button" onclick="toggleLanguage()" lang="en"></button>
          <p data-translate="articleText"> An article that explains why the <code>/webview</code> command is only available in NSFW channels. </p>
          <hr>
          <p data-translate="restrictionText">As the owner of a bot with a command that takes screenshots of websites, you may be wondering why I can only make this command available in NSFW channels on Discord. <br>This restriction is in place to ensure that the bot does not inadvertently expose users to illegal or explicit content. </p>
@@ -134,7 +154,7 @@
              document.querySelectorAll('.feature-box').forEach(box => box.classList.remove("transition"));
            }, 300);
          }
-         const defaultLanguage = 'en';
+         const defaultLanguage = 'fr';
          let currentLanguage = localStorage.getItem('language') || defaultLanguage;
          
          function toggleLanguage() {
